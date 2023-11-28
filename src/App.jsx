@@ -61,8 +61,14 @@ function App() {
 		})
 	}
 
+	const ctxValue = {
+		items: shoppingCart.items,
+		addItemToCart: handleAddItemToCart,
+		updateItemCartQuantity: handleUpdateCartItemQuantity,
+	}
+
 	return (
-		<CartContext.Provider value={{ items: [] }}>
+		<CartContext.Provider value={ctxValue}>
 			<Header cart={shoppingCart} onUpdateCartItemQuantity={handleUpdateCartItemQuantity} />
 			<Shop onAddItemToCart={handleAddItemToCart} />
 		</CartContext.Provider>
